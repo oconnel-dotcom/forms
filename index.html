@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Inscrição - DEMODAY</title>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,700;0,800;1,800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,600;0,700;0,800;1,800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <style>
@@ -32,56 +32,31 @@
         }
 
         .container {
-            max-width: 480px; /* Focado no mobile conforme o mockup */
+            max-width: 480px;
             width: 100%;
             padding: 20px;
-            background: url('data:image/svg+xml;utf8,<svg opacity="0.05" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="10" cy="10" r="5" fill="%23f9006e"/></svg>') repeat;
+            /* Fundo sutil para não brigar com a arte principal */
+            background: url('data:image/svg+xml;utf8,<svg opacity="0.03" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="10" cy="10" r="5" fill="%23f9006e"/></svg>') repeat;
         }
 
-        /* HEADER & LOGO */
-        .header {
+        /* HEADER / ARTE DO TOPO */
+        .header-banner {
+            width: 100%;
             text-align: center;
             margin-bottom: 20px;
-            position: relative;
         }
         
-        .header img {
-            max-width: 100%;
+        .header-banner img {
+            width: 100%;
             height: auto;
-        }
-
-        .logo-box {
-            background-color: var(--dark);
-            color: white;
-            display: inline-block;
-            padding: 10px 20px;
-            transform: skew(-5deg);
-            margin-top: 20px;
-            box-shadow: 4px 4px 0px var(--yellow);
-        }
-        
-        .logo-box h1 {
-            font-weight: 800;
-            font-size: 28px;
-            letter-spacing: 1px;
-            transform: skew(5deg);
-            margin: 0;
-        }
-        .logo-box .yellow-text { color: var(--yellow); }
-
-        .subtitle {
-            background-color: var(--dark);
-            color: white;
-            font-size: 10px;
-            padding: 3px 8px;
-            display: inline-block;
-            margin-top: -5px;
-            transform: skew(-5deg);
+            border-radius: 12px;
+            /* Se a imagem tiver fundo branco, isso a integra bem */
+            display: block; 
         }
 
         .hero-text {
             text-align: center;
-            margin: 25px 0;
+            margin: 15px 0 25px 0;
         }
         .hero-text h2 {
             font-size: 18px;
@@ -108,6 +83,7 @@
             padding: 15px 10px;
             margin-bottom: 30px;
             box-shadow: 0 4px 10px rgba(0,0,0,0.03);
+            background-color: white;
         }
         .card {
             text-align: center;
@@ -155,6 +131,7 @@
             font-size: 13px;
             outline: none;
             transition: 0.3s;
+            background-color: white;
         }
         .form-control:focus {
             border-color: var(--blue);
@@ -163,6 +140,26 @@
         textarea.form-control {
             resize: vertical;
             min-height: 80px;
+        }
+
+        /* RADIO BUTTONS - EQUIPE */
+        .radio-group {
+            display: flex;
+            gap: 20px;
+            margin-top: 5px;
+        }
+        .radio-option {
+            display: flex;
+            align-items: center;
+            font-size: 13px;
+            font-weight: 500;
+            cursor: pointer;
+        }
+        .radio-option input {
+            margin-right: 6px;
+            width: 16px;
+            height: 16px;
+            accent-color: var(--pink);
         }
 
         /* CHECKBOX E REGULAMENTO */
@@ -177,6 +174,7 @@
             margin-right: 8px;
             width: 16px;
             height: 16px;
+            accent-color: var(--pink);
         }
         .checkbox-group a {
             color: var(--blue);
@@ -214,15 +212,15 @@
             font-size: 11px;
             color: #666;
             margin-top: 10px;
+            margin-bottom: 20px;
         }
         .security-note i { color: var(--blue); margin-right: 5px;}
 
-        /* FOOTER */
+        /* FOOTER & POWERED BY */
         .footer {
             background-color: var(--dark);
             color: white;
             padding: 20px;
-            margin-top: 40px;
             border-radius: 12px 12px 0 0;
             display: flex;
             justify-content: space-between;
@@ -241,19 +239,34 @@
             font-size: 18px;
             cursor: pointer;
         }
-        
-        /* FormSubmit hidden inputs */
-        .hidden { display: none; }
+
+        .powered-by {
+            background-color: #f9f9f9;
+            padding: 15px;
+            text-align: center;
+            border-top: 1px solid var(--border);
+        }
+        .powered-by p {
+            font-size: 10px;
+            color: #666;
+            margin-bottom: 5px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .powered-by img {
+            max-height: 35px; /* Tamanho da sua logo */
+            width: auto;
+            margin-top: 5px;
+        }
+
     </style>
 </head>
 <body>
 
 <div class="container">
-    <div class="header">
-        <div class="logo-box">
-            <h1>DEMO<span class="yellow-text">DAY</span></h1>
-        </div><br>
-        <div class="subtitle">EMPREENDA. INOVE. TRANSFORME.</div>
+    
+    <div class="header-banner">
+        <img src="arte-topo.jpg" alt="Arte Demoday">
     </div>
 
     <div class="hero-text">
@@ -285,10 +298,17 @@
         
         <form action="https://formsubmit.co/marianalemos595@gmail.com" method="POST">
             
-            <input type="hidden" name="_subject" value="Nova Inscrição - DEMODAY 2025!">
-            <input type="hidden" name="_captcha" value="false"> <div class="form-group">
+            <input type="hidden" name="_subject" value="Nova Inscrição - DEMODAY!">
+            <input type="hidden" name="_captcha" value="false">
+
+            <div class="form-group">
                 <label>NOME COMPLETO</label>
                 <input type="text" name="Nome" class="form-control" placeholder="Digite seu nome completo" required>
+            </div>
+
+            <div class="form-group">
+                <label>CPF (OBRIGATÓRIO PARA O CERTIFICADO)</label>
+                <input type="text" name="CPF" class="form-control" placeholder="000.000.000-00" required>
             </div>
 
             <div class="form-group">
@@ -299,6 +319,23 @@
             <div class="form-group">
                 <label>TELEFONE</label>
                 <input type="tel" name="Telefone" class="form-control" placeholder="(11) 99999-9999" required>
+            </div>
+
+            <div class="form-group">
+                <label>FAZ PARTE DE UMA EQUIPE?</label>
+                <div class="radio-group">
+                    <label class="radio-option">
+                        <input type="radio" name="Tem_Equipe" value="Sim" onclick="mostrarCampoEquipe(true)" required> Sim
+                    </label>
+                    <label class="radio-option">
+                        <input type="radio" name="Tem_Equipe" value="Não" onclick="mostrarCampoEquipe(false)" required> Não
+                    </label>
+                </div>
+            </div>
+
+            <div class="form-group" id="campo_nome_equipe" style="display: none;">
+                <label>QUAL O NOME DA EQUIPE?</label>
+                <input type="text" id="input_nome_equipe" name="Nome_da_Equipe" class="form-control" placeholder="Digite o nome da sua equipe">
             </div>
 
             <div class="form-group">
@@ -325,7 +362,7 @@
 
             <div class="checkbox-group">
                 <input type="checkbox" name="Aceitou_Regulamento" value="Sim" required>
-                <label>Li e aceito o <a href="edital.pdf" target="_blank">regulamento</a> do evento.</label>
+                <label>Li e aceito o <a href="LINK_DO_SEU_PDF_AQUI" target="_blank">regulamento</a> do evento.</label>
             </div>
 
             <button type="submit" class="btn-submit">
@@ -340,7 +377,7 @@
 
     <div class="footer">
         <div class="footer-text">
-            <h4>DEMODAY 2025</h4>
+            <h4>DEMODAY</h4>
             <p>Empreenda. Inove. Transforme.</p>
         </div>
         <div class="social-icons">
@@ -349,7 +386,29 @@
             <i class="fab fa-youtube"></i>
         </div>
     </div>
+    
+    <div class="powered-by">
+        <p>Powered by <strong>Projetar Soluções</strong></p>
+        <img src="logo-projetar.png" alt="Logo Projetar Soluções">
+    </div>
+
 </div>
+
+<script>
+    function mostrarCampoEquipe(mostrar) {
+        var divEquipe = document.getElementById('campo_nome_equipe');
+        var inputEquipe = document.getElementById('input_nome_equipe');
+        
+        if(mostrar) {
+            divEquipe.style.display = 'block';
+            inputEquipe.required = true; // Torna o campo obrigatório se ele tem equipe
+        } else {
+            divEquipe.style.display = 'none';
+            inputEquipe.required = false; // Remove a obrigatoriedade
+            inputEquipe.value = ''; // Limpa o campo caso ele tenha digitado e depois mudado de ideia
+        }
+    }
+</script>
 
 </body>
 </html>
